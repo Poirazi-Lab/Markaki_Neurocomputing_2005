@@ -1,0 +1,23 @@
+// This function is used to balance the membrane potential to v_init (= -70 mV)
+// written by Yiota Poirazi, July 2001, poirazi@LNC.usc.edu
+
+proc current_balance() {
+
+ // print "Note: This does not account for non-specific ion currents.\n"
+
+  finitialize($1)
+  fcurrent()
+
+  printf("Balancing each compartment to %d mV\n", $1)
+
+  forall {
+    for (x) {
+    if (ismembrane("hha2") || ismembrane("hha_old")) {e_pas(x)=v(x)+(ina(x)+ik(x))/g_pas(x)} 
+    if (ismembrane("ca_ion")) {e_pas(x)=e_pas(x)+ica(x)/g_pas(x)}
+//    if (ismembrane("h")) {e_pas(x)=e_pas(x)+i_h(x)/g_pas(x)}
+//    if (ismembrane("h")) {e_pas(x)=e_pas(x)+ina(x)/g_pas(x)}
+    fcurrent()
+    }
+  }
+	cvode.re_init()
+}

@@ -1,0 +1,17 @@
+//moddir mechanism
+load_file("nrngui.hoc")
+load_file("template/ExperimentControl.hoc")
+load_file("template/ObliquePath.hoc")
+load_file("template/BasalPath.hoc")
+load_file("template/EPSPTuning.hoc")
+load_file("template/RangeRef.hoc")
+load_file("template/SynapseBand.hoc")
+
+load_file("morphology/n123/cell.hoc")
+load_file("morphology/n123/oblique-paths.hoc")
+load_file("morphology/n123/axon-sec-list.hoc")
+load_file("morphology/n123/basal-tree-list.hoc")
+load_file("morphology/n123/apical-trunk-list.hoc")
+load_file("morphology/n123/apical-non-trunk-list.hoc")
+load_file("experiment/cell-setup.hoc")
+load_file("experiment/aging-traces/aging_traces.hoc")
